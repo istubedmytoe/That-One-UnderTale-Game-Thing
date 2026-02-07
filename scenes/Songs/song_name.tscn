@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwcmwk2mg8fxt"]
+
+[ext_resource type="PackedScene" uid="uid://ieciv354br4a" path="res://That-One-UnderTale-Game-Thing/scenes/player/player.tscn" id="1_augbb"]
+[ext_resource type="PackedScene" uid="uid://8rchhb3tg0ej" path="res://That-One-UnderTale-Game-Thing/scenes/test/test_projectile.tscn" id="2_qtq2i"]
+
+[sub_resource type="Animation" id="Animation_qtq2i"]
+resource_name = "test"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqiq1"]
+_data = {
+&"test": SubResource("Animation_qtq2i")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qtq2i"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqiq1"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vdxdb"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q0rl2"]
+
+[node name="SongName" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_augbb")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TestProjectile" parent="." instance=ExtResource("2_qtq2i")]
+position = Vector2(200, 79)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yqiq1")
+}
+
+[node name="Boundries" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries"]
+position = Vector2(576, 0)
+shape = SubResource("WorldBoundaryShape2D_qtq2i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundries"]
+position = Vector2(-576, 0)
+shape = SubResource("WorldBoundaryShape2D_yqiq1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundries"]
+position = Vector2(0, -324)
+shape = SubResource("WorldBoundaryShape2D_vdxdb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundries"]
+position = Vector2(0, 324)
+shape = SubResource("WorldBoundaryShape2D_q0rl2")
