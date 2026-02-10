@@ -1,5 +1,5 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 class_name Projectile
 
-@export var color : Gamemanager.colors
+var hurt_color : Gamemanager.colors

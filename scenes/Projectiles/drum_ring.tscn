@@ -1,0 +1,417 @@
+[gd_scene load_steps=17 format=3 uid="uid://2dqpms0actdr"]
+
+[ext_resource type="Script" uid="uid://b4k4pv1nn8bub" path="res://That-One-UnderTale-Game-Thing/scripts/projectile/drum_ring.gd" id="1_rnqpp"]
+[ext_resource type="Texture2D" uid="uid://bvdo0xvsm2p02" path="res://That-One-UnderTale-Game-Thing/assets/hurt things/greyscale ring.png" id="2_rnqpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2tf"]
+size = Vector2(6, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd6b8"]
+size = Vector2(5, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eln74"]
+size = Vector2(7.5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06jhs"]
+size = Vector2(6.75, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l3kh"]
+size = Vector2(6.75, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0edws"]
+size = Vector2(7, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_faxwp"]
+size = Vector2(19.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o4u4"]
+size = Vector2(6.375, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2w6b"]
+size = Vector2(5, 8)
+
+[sub_resource type="Animation" id="Animation_c07jq"]
+resource_name = "scale"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1.624505, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ring:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.76666665, 4),
+"transitions": PackedFloat32Array(1, 1.62, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_16nej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ring:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rnqpp"]
+resource_name = "scale slow"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1.624505, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ring:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5333333, 8),
+"transitions": PackedFloat32Array(1, 1.62, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_whh7w"]
+resource_name = "scale fast"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1.624505, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ring:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2mw1"]
+_data = {
+&"RESET": SubResource("Animation_16nej"),
+&"scale": SubResource("Animation_c07jq"),
+&"scale fast": SubResource("Animation_whh7w"),
+&"scale slow": SubResource("Animation_rnqpp")
+}
+
+[node name="Drum Ring" type="CharacterBody2D"]
+scale = Vector2(1e-05, 1e-05)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_rnqpp")
+
+[node name="Ring" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_rnqpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-57, -10)
+shape = SubResource("RectangleShape2D_2b2tf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-53.5, -26)
+shape = SubResource("RectangleShape2D_wd6b8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-48.75, -34.5)
+shape = SubResource("RectangleShape2D_eln74")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-45.375, -39.5)
+shape = SubResource("RectangleShape2D_06jhs")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-40, -44.75)
+shape = SubResource("RectangleShape2D_0l3kh")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-33.5, -49.5)
+shape = SubResource("RectangleShape2D_0edws")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-9.25, -58)
+shape = SubResource("RectangleShape2D_faxwp")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-22.1875, -55)
+shape = SubResource("RectangleShape2D_8o4u4")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-27.5, -52)
+shape = SubResource("RectangleShape2D_t2w6b")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-9.999997, 57)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_2b2tf")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-25.999998, 53.5)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_wd6b8")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-34.499996, 48.75)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_eln74")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-39.499996, 45.375)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_06jhs")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-44.75, 40.000004)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_0l3kh")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-49.5, 33.500004)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_0edws")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-58, 9.250003)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_faxwp")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-55, 22.187502)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_8o4u4")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-52, 27.500002)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_t2w6b")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(57, 9.999995)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_2b2tf")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(53.500004, 25.999996)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_wd6b8")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(48.750004, 34.499996)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_eln74")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(45.375004, 39.499996)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_06jhs")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(40.000004, 44.749996)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_0l3kh")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(33.500004, 49.499996)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_0edws")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(9.250005, 58)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_faxwp")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(22.187506, 54.999996)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_8o4u4")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(27.500004, 51.999996)
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_t2w6b")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(9.999999, -57)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_2b2tf")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(26, -53.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_wd6b8")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(34.5, -48.75)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_eln74")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(39.5, -45.375)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_06jhs")
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(44.75, -40)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_0l3kh")
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(49.5, -33.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_0edws")
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(58, -9.250001)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_faxwp")
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(55, -22.1875)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_8o4u4")
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(52, -27.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_t2w6b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v2mw1")
+}

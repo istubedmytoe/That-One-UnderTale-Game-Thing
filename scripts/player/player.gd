@@ -2,30 +2,40 @@ extends CharacterBody2D
 
 class_name Player
 
-var colors := Gamemanager.colors
-var current_color : colors = colors.RED
+var current_color : Gamemanager.colors = Gamemanager.colors.RED
 
-var max_speed = 400
+var max_speed = 200
 var acc = 100
 var friction = 100
 
+@onready var animated_sprite: AnimatedSprite2D = $'Derpy Guy'
+@onready var hit_anim_timer: Timer = $hitAnimTimer
 
 func _ready() -> void:
 	Gamemanager.player = self
 func _physics_process(_delta: float) -> void:
 	playermovement()
 	shift_color()
-
+	animation_handler()
+func animation_handler():
+	if velocity == Vector2.ZERO:
+		animated_sprite.play('idle')
+	else:
+		animated_sprite.play('walk')
+	if velocity.x > 0: animated_sprite.flip_h = true
+	else: animated_sprite.flip_h = false
+	if !hit_anim_timer.is_stopped():
+		animated_sprite.play('hurt') #no work
 func shift_color():
 	if Input.is_action_just_pressed('red'):
-		current_color = colors.RED
+		animated_sprite.material.set('shader_parameter/color', Vector4(1, 0, 0, 0))
+		current_color = Gamemanager.colors.RED
 	if Input.is_action_just_pressed('green'):
-		current_color = colors.GREEN
+		animated_sprite.material.set('shader_parameter/color', Vector4(0, 1, 0, 0))
+		current_color = Gamemanager.colors.GREEN
 	if Input.is_action_just_pressed('blue'):
-		current_color = colors.BLUE
-		match current_color:
-			colors.RED:
-				pass
+		animated_sprite.material.set('shader_parameter/color', Vector4(0, 0, 1, 0))
+		current_color = Gamemanager.colors.BLUE
 func playermovement():
 	var input := Input.get_vector('left', 'right', 'up', 'down').normalized()
 	
@@ -43,5 +53,6 @@ func playermovement():
 func _on_hit_detection_body_entered(body: Node2D) -> void:
 	if body is Projectile:
 		var proj : Projectile = body
-		if proj.color == current_color:
-			print('hi')
+		if proj.hurt_color != current_color:
+			print('hurt')
+			hit_anim_timer.start()
